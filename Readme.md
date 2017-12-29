@@ -43,13 +43,13 @@ Pole Description jest opcjonalne.
 
 2. Edycja istniejącej audycji.
 
-Zapytanie HTTP PUT pod adres /api/programme/<programmeID>, gdzie za <programmeID> podajemy odpowiedni identyfikator. Wymagane konto administratorskie.
+Zapytanie HTTP PUT pod adres /api/programme/{programmeID}, gdzie za {programmeID} podajemy odpowiedni identyfikator. Wymagane konto administratorskie.
 
 Przykładowa zawartość JSON - jak w pkt. 1.
 
 3. Usuwanie audycji.
 
-Zapytanie HTTP DELETE pod adres /api/programme/<programmeID>, gdzie za <programmeID> podajemy odpowiedni identyfikator. Wymagane konto administratorskie.
+Zapytanie HTTP DELETE pod adres /api/programme/{programmeID}, gdzie za {programmeID} podajemy odpowiedni identyfikator. Wymagane konto administratorskie.
 
 Zapytanie nie oczekuje JSON-a w zawartości.
 
@@ -61,7 +61,7 @@ Zapytanie nie oczekuje JSON-a w zawartości.
 
 5. Wyświetlanie audycji o określonym identyfikatorze.
 
-Zapytanie HTTP GET pod adres /api/programme, gdzie za <programmeID> podajemy odpowiedni identyfikator. Wymagane konto użytkownika z dowolnymi uprawnieniami.
+Zapytanie HTTP GET pod adres /api/programme, gdzie za {programmeID} podajemy odpowiedni identyfikator. Wymagane konto użytkownika z dowolnymi uprawnieniami.
 
 Zapytanie nie oczekuje JSON-a w zawartości.
 
@@ -123,7 +123,7 @@ itp... (reszta z dzielenia nr dnia przez 7)
 
 7. Wprowadzenie do systemu informacji o przypisaniu istniejącego programu do dnia i godziny w ramówce.
 
-Zapytanie HTTP POST pod adres /api/schedule/?programme=<programmeID>, gdzie za <programmeID> podajemy odpowiedni identyfikator. Wymagane konto administratorskie.
+Zapytanie HTTP POST pod adres /api/schedule/?programme={programmeID}, gdzie za {programmeID} podajemy odpowiedni identyfikator. Wymagane konto administratorskie.
 
 Przykładowa zawartość JSON (jeśli ma zostać przypisany do ramówki specjalnej na konkretną datę):
 
@@ -157,13 +157,13 @@ Dni tygodnia numerujemy jak wyżej.
 
 8. Przypisanie do istniejącej pozycji w ramówce innej audycji istniejącej w systemie.
 
-Zapytanie HTTP PUT pod adres /api/schedule/<scheduleID>?programme=<programmeID>, gdzie za <scheduleID> podajemy identyfikator pozycji w ramówce, a za <programmeID> - identyfikator programu, który ma zostać do niej przypisany. Wymagane konto administratorskie.
+Zapytanie HTTP PUT pod adres /api/schedule/{scheduleID}?programme={programmeID}, gdzie za {scheduleID} podajemy identyfikator pozycji w ramówce, a za {programmeID} - identyfikator programu, który ma zostać do niej przypisany. Wymagane konto administratorskie.
 
 Zapytanie NIE MOŻE zawierać JSON-a.
 
 9. Edycja informacji o pozycji ramówkowej (dzień, godzina).
 
-Zapytanie HTTP PUT pod adres /api/schedule/<scheduleID>, gdzie za <scheduleID> podajemy identyfikator pozycji w ramówce. Wymagane konto administratorskie.
+Zapytanie HTTP PUT pod adres /api/schedule/{scheduleID}, gdzie za {scheduleID} podajemy identyfikator pozycji w ramówce. Wymagane konto administratorskie.
 
 Przykładowa zawartość JSON (jeśli ma zostać przypisany do ramówki specjalnej na konkretną datę):
 
@@ -195,13 +195,13 @@ lub (przypisanie do ramówki cyklicznej na dany dzień tygodnia):
 
 10. Usuwanie pozycji ramówkowej (bez usunięcia samej audycji!).
 
-Zapytanie HTTP DELETE pod adres /api/schedule/<scheduleID>, gdzie za <scheduleID> podajemy identyfikator pozycji w ramówce. Wymagane konto administratorskie.
+Zapytanie HTTP DELETE pod adres /api/schedule/{scheduleID}, gdzie za {scheduleID} podajemy identyfikator pozycji w ramówce. Wymagane konto administratorskie.
 
 Zapytanie nie oczekuje JSON-a w zawartości.
 
 11. Wyszukanie informacji o pozycji ramówkowej na podstawie jej identyfikatora.
 
-Zapytanie HTTP GET pod adres /api/schedule/<scheduleID>, gdzie za <scheduleID> podajemy identyfikator pozycji w ramówce. Wymagane konto użytkownika z dowolnymi uprawnieniami.
+Zapytanie HTTP GET pod adres /api/schedule/{scheduleID}, gdzie za {scheduleID} podajemy identyfikator pozycji w ramówce. Wymagane konto użytkownika z dowolnymi uprawnieniami.
 
 Zapytanie nie oczekuje JSON-a w zawartości.
 
