@@ -1,4 +1,6 @@
-﻿namespace RamowkiWithOpenIddictAuth.Models
+﻿using System;
+
+namespace RamowkiWithOpenIddictAuth.Models
 {
     public class Time
     {
@@ -11,5 +13,17 @@
             this.Minutes = minutes;
         }
         public Time(int hours) : this(hours, 0) {}
+        public int CompareTo(Time other)
+        {
+            int hoursCompared = this.Hours.CompareTo(other.Hours);
+            if (hoursCompared != 0)
+            {
+                return hoursCompared;
+            }
+            else
+            {
+                return this.Minutes.CompareTo(other.Minutes);
+            }
+        }
     }
 }
