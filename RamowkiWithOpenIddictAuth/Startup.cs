@@ -27,10 +27,14 @@ namespace RamowkiWithOpenIddictAuth
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddCors();
+
             services.AddMvc().AddJsonOptions(options => {
                 options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                 options.SerializerSettings.DateFormatString = "dd-MM-yyyy";
             });
+
             services.AddOpenIddict(options =>
             {
                 options.AddEntityFrameworkCoreStores<ApplicationDbContext>();
@@ -39,11 +43,13 @@ namespace RamowkiWithOpenIddictAuth
                 options.AllowPasswordFlow();
                 options.DisableHttpsRequirement();
             });
+
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = OAuthValidationDefaults.AuthenticationScheme;
             })
             .AddOAuthValidation();
+
             services.AddTransient<DbContext, ApplicationDbContext>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IProgrammeService, ProgrammeService>();
@@ -53,6 +59,11 @@ namespace RamowkiWithOpenIddictAuth
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseAuthentication();
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());  
             app.UseMvc();
         }
     }
