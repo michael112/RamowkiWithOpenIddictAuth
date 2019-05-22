@@ -35,18 +35,6 @@ namespace RamowkiWithOpenIddictAuth
                 options.SerializerSettings.DateFormatString = "dd-MM-yyyy";
             });
 
-            /*
-            services.AddOpenIddict(options =>
-            {
-                options.AddEntityFrameworkCoreStores<ApplicationDbContext>();
-                options.AddMvcBinders();
-                options.EnableTokenEndpoint("/connect/token");
-                options.AllowPasswordFlow();
-                options.DisableHttpsRequirement();
-            });
-            */
-
-            // Do nowej wersji OpenIdDict:
             services.AddOpenIddict()
                 .AddCore(options =>
                 {

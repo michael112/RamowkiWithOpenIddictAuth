@@ -13,11 +13,6 @@
     <PackageReference Include="OpenIddict" Version="2.0.0" />
     <PackageReference Include="OpenIddict.EntityFrameworkCore" Version="2.0.0" />
     <PackageReference Include="OpenIddict.Mvc" Version="2.0.0" />
-    <!--
-    <PackageReference Include="OpenIddict" Version="2.0.0-rc2-final" />
-    <PackageReference Include="OpenIddict.EntityFrameworkCore" Version="2.0.0-rc2-final" />
-    <PackageReference Include="OpenIddict.Mvc" Version="2.0.0-rc2-final" />
-    -->
     <PackageReference Include="Rework" Version="1.0.12" />
   </ItemGroup>
   <ItemGroup>
