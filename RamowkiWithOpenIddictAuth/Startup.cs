@@ -36,18 +36,18 @@ namespace RamowkiWithOpenIddictAuth
             });
 
             services.AddOpenIddict()
-                .AddCore(options =>
-                {
-                    options.UseEntityFrameworkCore().UseDbContext<ApplicationDbContext>();
-                })
-                .AddServer(options =>
-                {
-                    options.UseMvc();
-                    options.EnableTokenEndpoint("/connect/token");
-                    options.AllowPasswordFlow();
-                    options.DisableHttpsRequirement();
-                    options.AcceptAnonymousClients();
-                });
+            .AddCore(options =>
+            {
+                options.UseEntityFrameworkCore().UseDbContext<ApplicationDbContext>();
+            })
+            .AddServer(options =>
+            {
+                options.UseMvc();
+                options.EnableTokenEndpoint("/connect/token");
+                options.AllowPasswordFlow();
+                options.DisableHttpsRequirement();
+                options.AcceptAnonymousClients();
+            });
 
             services.AddAuthentication(options =>
             {
