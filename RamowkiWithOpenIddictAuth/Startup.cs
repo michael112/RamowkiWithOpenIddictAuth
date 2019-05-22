@@ -43,6 +43,20 @@ namespace RamowkiWithOpenIddictAuth
                 options.AllowPasswordFlow();
                 options.DisableHttpsRequirement();
             });
+            /* Do nowej wersji OpenIdDict:
+            services.AddOpenIddict()
+                .AddCore(options =>
+                {
+					options.UseEntityFrameworkCore().UseDbContext<ApplicationDbContext>();
+                })
+                .AddServer(options =>
+                {
+                    options.UseMvc();
+                    options.EnableTokenEndpoint("/connect/token");
+                    options.AllowPasswordFlow();
+                    options.DisableHttpsRequirement();
+                });
+            */
 
             services.AddAuthentication(options =>
             {
