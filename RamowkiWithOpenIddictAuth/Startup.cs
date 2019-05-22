@@ -35,6 +35,7 @@ namespace RamowkiWithOpenIddictAuth
                 options.SerializerSettings.DateFormatString = "dd-MM-yyyy";
             });
 
+            /*
             services.AddOpenIddict(options =>
             {
                 options.AddEntityFrameworkCoreStores<ApplicationDbContext>();
@@ -43,11 +44,13 @@ namespace RamowkiWithOpenIddictAuth
                 options.AllowPasswordFlow();
                 options.DisableHttpsRequirement();
             });
-            /* Do nowej wersji OpenIdDict:
+            */
+
+            // Do nowej wersji OpenIdDict:
             services.AddOpenIddict()
                 .AddCore(options =>
                 {
-					options.UseEntityFrameworkCore().UseDbContext<ApplicationDbContext>();
+                    options.UseEntityFrameworkCore().UseDbContext<ApplicationDbContext>();
                 })
                 .AddServer(options =>
                 {
@@ -55,8 +58,8 @@ namespace RamowkiWithOpenIddictAuth
                     options.EnableTokenEndpoint("/connect/token");
                     options.AllowPasswordFlow();
                     options.DisableHttpsRequirement();
+                    options.AcceptAnonymousClients();
                 });
-            */
 
             services.AddAuthentication(options =>
             {
